@@ -4,6 +4,8 @@
 // ========================================================
 const canvas = document.getElementById('organicCanvas');
 const ctx = canvas.getContext('2d');
+canvas.width = 1200;
+canvas.height = 1200;
 const W = canvas.width;
 const H = canvas.height;
 const centerX = W / 2;
@@ -19,7 +21,8 @@ function drawOrganicChromeOrganism(scrollProgress) {
   // Dynamic growth & deformation based on time and scroll
   angleOffset += 0.012;
   const numPetals = 16;
-  const baseRadius = 140 * (1 + scrollProgress * 0.7);
+  // Much bigger base radius: from 140 -> 240
+  const baseRadius = 240 * (1 + scrollProgress * 0.45);
 
   ctx.save();
   ctx.translate(centerX + mouseX * 20, centerY + mouseY * 20);
@@ -34,8 +37,8 @@ function drawOrganicChromeOrganism(scrollProgress) {
     for (let i = 0; i <= 360; i += 2) {
       const rad = (i * Math.PI) / 180;
       // High-frequency harmonic formula creating the spiky liquid tentacles
-      const spike = Math.sin(rad * numPetals + angleOffset * 2) * 55 * layerScale;
-      const ripple = Math.cos(rad * 8 - angleOffset * 3) * 25 * layerScale;
+      const spike = Math.sin(rad * numPetals + angleOffset * 2) * 95 * layerScale;
+      const ripple = Math.cos(rad * 8 - angleOffset * 3) * 40 * layerScale;
       const r = currentRadius + spike + ripple;
 
       const x = Math.cos(rad) * r;
@@ -47,37 +50,37 @@ function drawOrganicChromeOrganism(scrollProgress) {
     ctx.closePath();
 
     // Chrome Gradient: Deep blacks, crystalline purples, and sharp white highlights
-    const grad = ctx.createRadialGradient(0, 0, 10, 0, 0, currentRadius + 70);
+    const grad = ctx.createRadialGradient(0, 0, 15, 0, 0, currentRadius + 110);
     if (layer === 0) {
-      grad.addColorStop(0, '#e879f9');
-      grad.addColorStop(0.35, '#7e22ce');
-      grad.addColorStop(0.65, '#0f051d');
-      grad.addColorStop(0.85, '#ffffff'); // Chrome rim highlight
+      grad.addColorStop(0, '#f0abfc');
+      grad.addColorStop(0.3, '#9333ea');
+      grad.addColorStop(0.6, '#180829');
+      grad.addColorStop(0.82, '#ffffff'); // Crisp chrome rim highlight
       grad.addColorStop(1, '#05020a');
     } else if (layer === 1) {
-      grad.addColorStop(0, '#c084fc');
-      grad.addColorStop(0.4, '#3b0764');
+      grad.addColorStop(0, '#e879f9');
+      grad.addColorStop(0.4, '#581c87');
       grad.addColorStop(0.8, '#a855f7');
       grad.addColorStop(1, '#000000');
     } else {
       grad.addColorStop(0, '#ffffff');
-      grad.addColorStop(0.5, '#581c87');
+      grad.addColorStop(0.5, '#7e22ce');
       grad.addColorStop(1, '#050508');
     }
 
     ctx.fillStyle = grad;
-    ctx.shadowColor = layer === 0 ? 'rgba(168, 85, 247, 0.7)' : 'rgba(0, 0, 0, 0.9)';
-    ctx.shadowBlur = layer === 0 ? 35 : 15;
+    ctx.shadowColor = layer === 0 ? 'rgba(168, 85, 247, 0.75)' : 'rgba(0, 0, 0, 0.9)';
+    ctx.shadowBlur = layer === 0 ? 45 : 20;
     ctx.fill();
 
-    ctx.strokeStyle = layer === 0 ? 'rgba(255, 255, 255, 0.65)' : 'rgba(192, 132, 252, 0.3)';
-    ctx.lineWidth = layer === 0 ? 1.5 : 1;
+    ctx.strokeStyle = layer === 0 ? 'rgba(255, 255, 255, 0.75)' : 'rgba(192, 132, 252, 0.35)';
+    ctx.lineWidth = layer === 0 ? 2 : 1.2;
     ctx.stroke();
   }
 
   // Draw intricate chrome spore filaments radiating outward
-  ctx.strokeStyle = 'rgba(216, 180, 254, 0.4)';
-  ctx.lineWidth = 1;
+  ctx.strokeStyle = 'rgba(216, 180, 254, 0.45)';
+  ctx.lineWidth = 1.2;
   for (let k = 0; k < numPetals; k++) {
     const kAngle = (k * 2 * Math.PI) / numPetals + angleOffset;
     const len = baseRadius * 1.35;
