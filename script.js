@@ -1,7 +1,7 @@
 // Elements
 const visualCore = document.getElementById('visualCore');
-const sideLeft = document.querySelector('.side-left');
-const sideRight = document.querySelector('.side-right');
+const slotLeft = document.querySelector('.slot-left');
+const slotRight = document.querySelector('.slot-right');
 const heroFooterBar = document.getElementById('heroFooterBar');
 const scrollTrack = document.getElementById('scrollTrack');
 const navbar = document.getElementById('navbar');
@@ -16,20 +16,19 @@ function handleScrollAnimation() {
   const progress = Math.min(Math.max(rawProgress, 0), 1);
 
   // 1. Text Split Separation Animation:
-  // As user scrolls down, "MORSHEDUL" moves left and "HASAN" moves right
-  // matching the exact "BORN" / "FUTURE" outward reveal from the video!
-  const textTranslateX = progress * 240; // 0px to 240px outward
-  const textOpacity = Math.max(0, 1 - progress * 1.5); // Fades gently
-  const textScale = 1 - progress * 0.15; // Subtle scale down
+  // As user scrolls down, "MORSHEDUL" glides outward left and "HASAN" outward right
+  const textTranslateX = progress * 260; // 0px to 260px outward
+  const textOpacity = Math.max(0, 1 - progress * 1.6); // Fades gently
+  const textScale = 1 - progress * 0.12; // Subtle scale down
 
-  if (sideLeft) {
-    sideLeft.style.transform = `translateX(-${textTranslateX}px) scale(${textScale})`;
-    sideLeft.style.opacity = textOpacity.toString();
+  if (slotLeft) {
+    slotLeft.style.transform = `translateX(-${textTranslateX}px) scale(${textScale})`;
+    slotLeft.style.opacity = textOpacity.toString();
   }
 
-  if (sideRight) {
-    sideRight.style.transform = `translateX(${textTranslateX}px) scale(${textScale})`;
-    sideRight.style.opacity = textOpacity.toString();
+  if (slotRight) {
+    slotRight.style.transform = `translateX(${textTranslateX}px) scale(${textScale})`;
+    slotRight.style.opacity = textOpacity.toString();
   }
 
   // 2. Center 3D Visual Core Animation:
