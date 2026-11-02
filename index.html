@@ -4,69 +4,231 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Morshedul Hasan | Portfolio</title>
+    <!-- Modern Editorial Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main id="app">
-      <!-- Sticky / Margin Container for Heading on Scroll -->
-      <header class="top-nav" id="topNav">
-        <div class="nav-brand">Morshedul Hasan</div>
-      </header>
+    <!-- Top Sleek Minimal Navigation Bar -->
+    <header class="navbar" id="navbar">
+      <div class="nav-left">
+        <a href="#hero" class="nav-brand">Morshedul Hasan</a>
+        <span class="nav-status-dot"></span>
+        <span class="nav-tagline">Available for Q4 projects</span>
+      </div>
+      <nav class="nav-center">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#works" class="nav-link">Selected Work</a>
+        <a href="#skills" class="nav-link">Capabilities</a>
+      </nav>
+      <div class="nav-right">
+        <a href="#contact" class="nav-cta">Let's Talk ↗</a>
+      </div>
+    </header>
 
-      <!-- Hero Section -->
-      <section class="hero-section" id="heroSection">
-        <div class="hero-content" id="heroContent">
-          <h1 class="hero-title" id="heroTitle">
-            <span class="greeting">Hello, I am</span>
-            <span class="name-highlight">Morshedul Hasan</span>
-          </h1>
-          <p class="hero-subtext">Software Engineer & Creative Developer crafting modern web experiences.</p>
-          <div class="scroll-indicator">
-            <span>Scroll down</span>
-            <div class="scroll-arrow">↓</div>
+    <!-- Scroll Track container for pinning and multi-stage animation -->
+    <div class="scroll-track" id="scrollTrack">
+      <div class="hero-pinned-stage" id="heroPinned">
+        
+        <!-- Ambient Glowing Core / 3D Holographic Visual -->
+        <div class="visual-core" id="visualCore">
+          <div class="core-glow"></div>
+          <div class="orb-ring ring-1"></div>
+          <div class="orb-ring ring-2"></div>
+          <div class="orb-ring ring-3"></div>
+          <div class="core-sphere">
+            <div class="inner-liquid"></div>
+          </div>
+        </div>
+
+        <!-- Monumental Split Headline (BORN / FUTURE style from the video) -->
+        <div class="split-headline" id="splitHeadline">
+          <div class="split-side side-left">
+            <span class="sub-label">HELLO, I AM</span>
+            <span class="huge-word word-morshedul">MORSHEDUL</span>
+          </div>
+          <div class="split-side side-right">
+            <span class="sub-label">CREATIVE ENGINEER</span>
+            <span class="huge-word word-hasan">HASAN</span>
+          </div>
+        </div>
+
+        <!-- Hero Bottom Info Accents -->
+        <div class="hero-footer-bar" id="heroFooterBar">
+          <div class="meta-item">
+            <span class="meta-title">Craft</span>
+            <span class="meta-desc">Creative Development & Distributed Architecture</span>
+          </div>
+          <div class="scroll-prompt" id="scrollPrompt">
+            <div class="mouse-icon">
+              <span class="mouse-wheel"></span>
+            </div>
+            <span class="prompt-text">Scroll to explore</span>
+          </div>
+          <div class="meta-item text-right">
+            <span class="meta-title">Location</span>
+            <span class="meta-desc">Worldwide / Remote</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Website Sections that slide into view -->
+    <main class="content-wrapper" id="contentWrapper">
+      
+      <!-- Philosophy / About Section -->
+      <section class="section about-section" id="about">
+        <div class="section-container">
+          <div class="editorial-header">
+            <span class="section-counter">01 // PHILOSOPHY</span>
+            <h2 class="section-heading">Architecting digital realities with precision & soul.</h2>
+          </div>
+          <div class="about-grid">
+            <div class="about-column highlight-column">
+              <p class="large-lead">
+                I specialize in high-impact user experiences, fluid motion interactions, and robust software architecture designed to leave a lasting impression.
+              </p>
+            </div>
+            <div class="about-column">
+              <p class="body-text">
+                Every project is treated as an intersection of engineering performance and aesthetic distinction. From cinematic scroll-driven narratives to low-latency real-time applications, I build digital products that captivate and convert.
+              </p>
+              <div class="stats-row">
+                <div class="stat-box">
+                  <span class="stat-number">5+</span>
+                  <span class="stat-label">Years of Craft</span>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-number">99.9%</span>
+                  <span class="stat-label">Performance Score</span>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-number">30+</span>
+                  <span class="stat-label">Deployments</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- Content sections that reveal as you scroll -->
-      <section class="content-section" id="about">
-        <div class="section-badge">About</div>
-        <h2>Passionate about building scalable systems & delightful interfaces</h2>
-        <p>I blend engineering rigor with design aesthetics to build fast, responsive, and intuitive web applications.</p>
-      </section>
+      <!-- Selected Works Section -->
+      <section class="section works-section" id="works">
+        <div class="section-container">
+          <div class="editorial-header">
+            <span class="section-counter">02 // SELECTED ARCHIVE</span>
+            <h2 class="section-heading">Featured Works & Case Studies</h2>
+          </div>
 
-      <section class="content-section" id="projects">
-        <div class="section-badge">Selected Work</div>
-        <h2>Featured Projects</h2>
-        <div class="cards-grid">
-          <div class="card">
-            <h3>Interactive Web Platform</h3>
-            <p>Real-time analytics dashboard with dynamic data visualizations and sub-second load times.</p>
-            <div class="card-tags"><span>TypeScript</span><span>React</span><span>WebSockets</span></div>
-          </div>
-          <div class="card">
-            <h3>AI Coding Assistant Integration</h3>
-            <p>Developer tooling and background workflow automation engine with streaming responses.</p>
-            <div class="card-tags"><span>Node.js</span><span>LLM APIs</span><span>CSS3</span></div>
-          </div>
-          <div class="card">
-            <h3>High-Performance Portfolio</h3>
-            <p>Minimalist dark-mode portfolio emphasizing sleek typography, subtle glassmorphism, and micro-interactions.</p>
-            <div class="card-tags"><span>Vanilla JS</span><span>CSS Gradients</span></div>
+          <div class="works-list">
+            
+            <article class="work-card">
+              <div class="work-card-inner">
+                <div class="work-visual" style="background: radial-gradient(circle at 70% 30%, #4338ca, #09090b 70%);">
+                  <div class="project-tag">01 / PLATFORM</div>
+                </div>
+                <div class="work-info">
+                  <span class="work-category">Web Applications • 2026</span>
+                  <h3 class="work-title">Aether Real-Time Visual Engine</h3>
+                  <p class="work-desc">An interactive telemetry and 3D data pipeline delivering responsive, hardware-accelerated animations across browsers.</p>
+                  <div class="pill-row">
+                    <span>WebGL</span>
+                    <span>TypeScript</span>
+                    <span>Tailored CSS</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-card-inner">
+                <div class="work-visual" style="background: radial-gradient(circle at 30% 40%, #7c3aed, #09090b 70%);">
+                  <div class="project-tag">02 / AI TOOLING</div>
+                </div>
+                <div class="work-info">
+                  <span class="work-category">Systems Engineering • 2026</span>
+                  <h3 class="work-title">Cognitive Autonomous Agent Suite</h3>
+                  <p class="work-desc">High-speed background agent coordination workflow with live streaming token visualization and headless browser orchestrations.</p>
+                  <div class="pill-row">
+                    <span>Node.js</span>
+                    <span>REST / WebSockets</span>
+                    <span>Automation</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-card-inner">
+                <div class="work-visual" style="background: radial-gradient(circle at 60% 60%, #2563eb, #09090b 70%);">
+                  <div class="project-tag">03 / EXPERIENCE</div>
+                </div>
+                <div class="work-info">
+                  <span class="work-category">Creative Engineering • 2026</span>
+                  <h3 class="work-title">Cinematic Dimension Portfolio</h3>
+                  <p class="work-desc">Editorial dark-mode aesthetic utilizing mathematical scroll interpolation, liquid backdrop gradients, and micro-interactions.</p>
+                  <div class="pill-row">
+                    <span>Vanilla JS</span>
+                    <span>Fluid Typography</span>
+                    <span>GSAP-Style Motion</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
           </div>
         </div>
       </section>
 
-      <section class="content-section" id="contact">
-        <div class="section-badge">Get In Touch</div>
-        <h2>Let's build something together</h2>
-        <p>Open for collaborations, interesting engineering problems, and new opportunities.</p>
-        <a class="contact-btn" href="mailto:contact@morshedul.dev">Say Hello</a>
+      <!-- Capabilities / Stack -->
+      <section class="section skills-section" id="skills">
+        <div class="section-container">
+          <div class="editorial-header">
+            <span class="section-counter">03 // CORE CAPABILITIES</span>
+            <h2 class="section-heading">Engineered for Elegance & Scale</h2>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-tile">
+              <span class="skill-index">01</span>
+              <h4>Creative Development</h4>
+              <p>Liquid animations, scroll-driven timelines, WebGL shader experiments, and micro-physics interactions.</p>
+            </div>
+            <div class="skill-tile">
+              <span class="skill-index">02</span>
+              <h4>Frontend Systems</h4>
+              <p>Modern JavaScript (ESNext), React, Next.js architecture, component design tokens, and sub-100ms load benchmarks.</p>
+            </div>
+            <div class="skill-tile">
+              <span class="skill-index">03</span>
+              <h4>Full-Stack & Cloud</h4>
+              <p>Node.js backends, serverless deployments, CI/CD automated pipelines, and cloud containerization.</p>
+            </div>
+          </div>
+        </div>
       </section>
+
+      <!-- Contact Section -->
+      <section class="section contact-section" id="contact">
+        <div class="section-container text-center">
+          <span class="section-counter">04 // CONNECT</span>
+          <h2 class="contact-hero-text">Let's craft something unforgettable.</h2>
+          <p class="contact-subtext">Have a project in mind, an opportunity, or just want to discuss modern web design?</p>
+          <div class="contact-actions">
+            <a href="mailto:contact@morshedul.dev" class="primary-btn">Start a Conversation ↗</a>
+            <a href="https://github.com/yaboistellar" target="_blank" rel="noopener noreferrer" class="secondary-btn">GitHub Profile</a>
+          </div>
+          <footer class="footer-bottom">
+            <span>© 2026 Morshedul Hasan. All rights reserved.</span>
+            <span>Handcrafted with precision.</span>
+          </footer>
+        </div>
+      </section>
+
     </main>
+
     <script src="script.js"></script>
   </body>
 </html>
