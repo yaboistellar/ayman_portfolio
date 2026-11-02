@@ -76,7 +76,29 @@ body {
 
 .nav-cluster-left {
   display: flex;
-  gap: 2rem;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.nav-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.25s ease;
+}
+
+.nav-logo-link:hover {
+  transform: scale(1.1);
+}
+
+.nav-brand-icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  border-radius: 4px;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.45));
 }
 
 .nav-mono {
