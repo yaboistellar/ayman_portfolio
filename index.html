@@ -3,112 +3,118 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Morshedul Hasan | Portfolio</title>
-    <!-- Modern Editorial Typography -->
+    <title>MORSHEDUL HASAN // DIGITAL REALMS</title>
+    
+    <!-- Editorial Serif & Modern Monospace & Clean Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Top Sleek Minimal Navigation Bar -->
-    <header class="navbar" id="navbar">
-      <div class="nav-left">
-        <a href="#hero" class="nav-brand">Morshedul Hasan</a>
-        <span class="nav-status-dot"></span>
-        <span class="nav-tagline">Available for Q4 projects</span>
+    <!-- Persistent Film Grain & Atmospheric Ambient Canvas -->
+    <div class="noise-overlay"></div>
+    <div class="stars-backdrop"></div>
+
+    <!-- Minimalist Awwwards Header -->
+    <header class="editorial-nav">
+      <div class="nav-cluster-left">
+        <span class="nav-mono">WORK — 01</span>
+        <span class="nav-mono">CASE STUDY</span>
+        <span class="nav-mono">ABOUT US</span>
       </div>
-      <nav class="nav-center">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#works" class="nav-link">Selected Work</a>
-        <a href="#skills" class="nav-link">Capabilities</a>
-      </nav>
-      <div class="nav-right">
-        <a href="#contact" class="nav-cta">Let's Talk ↗</a>
+      <div class="nav-center-brand">
+        <a href="#hero">MORSHEDUL HASAN</a>
+      </div>
+      <div class="nav-cluster-right">
+        <a href="#contact" class="nav-action">LET'S BUILD SOMETHING EXTRAORDINARY ↗</a>
       </div>
     </header>
 
-    <!-- Scroll Track container for pinning and multi-stage animation -->
+    <!-- Scroll Track that pins the Hero for the multi-stage transformation -->
     <div class="scroll-track" id="scrollTrack">
-      <div class="hero-pinned-stage" id="heroPinned">
+      <div class="hero-pinned" id="heroPinned">
         
-        <!-- Ambient Glowing Core / 3D Holographic Visual -->
-        <div class="visual-core" id="visualCore">
-          <div class="core-glow"></div>
-          <div class="orb-ring ring-1"></div>
-          <div class="orb-ring ring-2"></div>
-          <div class="orb-ring ring-3"></div>
-          <div class="core-sphere">
-            <div class="inner-liquid"></div>
+        <!-- Background Organic Flowers / Ambient Purple Botanicals from the video -->
+        <div class="botanical-glow bot-left"></div>
+        <div class="botanical-glow bot-right"></div>
+
+        <!-- 3D Crystalline Alien Chrome Spire Canvas -->
+        <div class="chrome-sculpture-wrapper" id="sculptureWrapper">
+          <canvas id="organicCanvas" width="800" height="800"></canvas>
+          <div class="purple-heart-glow"></div>
+        </div>
+
+        <!-- Monumental Hero Typography with words overlapping the 3D core -->
+        <div class="monumental-stage" id="monumentalStage">
+          <!-- Left Monumental Word -->
+          <div class="monument-block block-left" id="blockLeft">
+            <h1 class="monument-title">MORSHEDUL</h1>
+          </div>
+
+          <!-- Right Monumental Word -->
+          <div class="monument-block block-right" id="blockRight">
+            <h1 class="monument-title">HASAN</h1>
           </div>
         </div>
 
-        <!-- Monumental Split Headline (Left Word + Gap for Center Orb + Right Word) -->
-        <div class="split-headline" id="splitHeadline">
-          <div class="split-slot slot-left">
-            <span class="sub-label">HELLO, I AM</span>
-            <span class="huge-word">MORSHEDUL</span>
-          </div>
-          <div class="split-gap-spacer"></div>
-          <div class="split-slot slot-right">
-            <span class="sub-label">CREATIVE ENGINEER</span>
-            <span class="huge-word">HASAN</span>
-          </div>
+        <!-- Micro-Typography Accents placed exactly like the video -->
+        <div class="hero-corner corner-top-right">
+          <span class="tag-title">BUILT FOR</span>
+          <span class="tag-bold">THE FUTURE</span>
         </div>
 
-        <!-- Hero Bottom Info Accents -->
-        <div class="hero-footer-bar" id="heroFooterBar">
-          <div class="meta-item">
-            <span class="meta-title">Craft</span>
-            <span class="meta-desc">Creative Development & Distributed Architecture</span>
+        <div class="hero-corner corner-bottom-left">
+          <span class="tag-title">WE TRANSCEND</span>
+          <span class="tag-bold">DIMENSIONS</span>
+          <a href="#works" class="corner-link">GET STARTED ↗</a>
+        </div>
+
+        <div class="hero-corner corner-bottom-right">
+          <p class="manifesto-paragraph">
+            Morshedul Hasan is where the organic meets the digital. Transforming visions into masterpieces that inspire and endure.
+          </p>
+        </div>
+
+        <!-- Interactive Scroll Down Indicator from the video -->
+        <div class="scroll-down-widget" id="scrollWidget">
+          <div class="pill-scroll">
+            <span class="scroll-dot"></span>
           </div>
-          <div class="scroll-prompt" id="scrollPrompt">
-            <div class="mouse-icon">
-              <span class="mouse-wheel"></span>
-            </div>
-            <span class="prompt-text">Scroll to explore</span>
-          </div>
-          <div class="meta-item text-right">
-            <span class="meta-title">Location</span>
-            <span class="meta-desc">Worldwide / Remote</span>
-          </div>
+          <span class="scroll-caption">SCROLL DOWN</span>
         </div>
 
       </div>
     </div>
 
-    <!-- Website Sections that slide into view -->
-    <main class="content-wrapper" id="contentWrapper">
-      
-      <!-- Philosophy / About Section -->
-      <section class="section about-section" id="about">
-        <div class="section-container">
-          <div class="editorial-header">
-            <span class="section-counter">01 // PHILOSOPHY</span>
-            <h2 class="section-heading">Architecting digital realities with precision & soul.</h2>
+    <!-- Rest of the Website Content (Glides smoothly over the dark horizon) -->
+    <main class="page-content" id="pageContent">
+
+      <!-- Section 01: Concept / Philosophy -->
+      <section class="content-block" id="about">
+        <div class="container">
+          <div class="block-header">
+            <span class="block-num">01 / CONCEPT</span>
+            <h2 class="block-title">Organic Essence Meets Digital Architecture</h2>
           </div>
-          <div class="about-grid">
-            <div class="about-column highlight-column">
-              <p class="large-lead">
-                I specialize in high-impact user experiences, fluid motion interactions, and robust software architecture designed to leave a lasting impression.
-              </p>
+          <div class="editorial-row">
+            <div class="editorial-col highlight">
+              <p>We blend cinematic typography, fluid motion mathematics, and cutting-edge web architecture to forge unforgettable digital landmarks.</p>
             </div>
-            <div class="about-column">
-              <p class="body-text">
-                Every project is treated as an intersection of engineering performance and aesthetic distinction. From cinematic scroll-driven narratives to low-latency real-time applications, I build digital products that captivate and convert.
-              </p>
-              <div class="stats-row">
-                <div class="stat-box">
-                  <span class="stat-number">5+</span>
-                  <span class="stat-label">Years of Craft</span>
+            <div class="editorial-col">
+              <p>Every interaction is calibrated with precision. By treating digital spaces with physical weight, liquid reflections, and responsive spatial soundscapes, each experience stands apart from the ordinary.</p>
+              <div class="metrics-grid">
+                <div class="metric">
+                  <span class="metric-val">100%</span>
+                  <span class="metric-lbl">Aesthetic Precision</span>
                 </div>
-                <div class="stat-box">
-                  <span class="stat-number">99.9%</span>
-                  <span class="stat-label">Performance Score</span>
+                <div class="metric">
+                  <span class="metric-val">60FPS</span>
+                  <span class="metric-lbl">Physics Performance</span>
                 </div>
-                <div class="stat-box">
-                  <span class="stat-number">30+</span>
-                  <span class="stat-label">Deployments</span>
+                <div class="metric">
+                  <span class="metric-val">A++</span>
+                  <span class="metric-lbl">Architecture Rating</span>
                 </div>
               </div>
             </div>
@@ -116,66 +122,60 @@
         </div>
       </section>
 
-      <!-- Selected Works Section -->
-      <section class="section works-section" id="works">
-        <div class="section-container">
-          <div class="editorial-header">
-            <span class="section-counter">02 // SELECTED ARCHIVE</span>
-            <h2 class="section-heading">Featured Works & Case Studies</h2>
+      <!-- Section 02: Selected Archive -->
+      <section class="content-block" id="works">
+        <div class="container">
+          <div class="block-header">
+            <span class="block-num">02 / ARCHIVE</span>
+            <h2 class="block-title">Curated Selected Works</h2>
           </div>
 
-          <div class="works-list">
+          <div class="projects-stream">
             
-            <article class="work-card">
-              <div class="work-card-inner">
-                <div class="work-visual" style="background: radial-gradient(circle at 70% 30%, #4338ca, #09090b 70%);">
-                  <div class="project-tag">01 / PLATFORM</div>
-                </div>
-                <div class="work-info">
-                  <span class="work-category">Web Applications • 2026</span>
-                  <h3 class="work-title">Aether Real-Time Visual Engine</h3>
-                  <p class="work-desc">An interactive telemetry and 3D data pipeline delivering responsive, hardware-accelerated animations across browsers.</p>
-                  <div class="pill-row">
-                    <span>WebGL</span>
-                    <span>TypeScript</span>
-                    <span>Tailored CSS</span>
-                  </div>
+            <article class="project-entry">
+              <div class="project-preview preview-gradient-1">
+                <div class="project-badge">WEBGL / IMMERSIVE</div>
+              </div>
+              <div class="project-details">
+                <span class="project-year">2026 // CASE STUDY</span>
+                <h3 class="project-name">Aether Transcendence Engine</h3>
+                <p>Interactive liquid chrome simulation responding to dynamic mouse inertia and ambient acoustic frequencies.</p>
+                <div class="project-tags">
+                  <span>Three.js</span>
+                  <span>GLSL Shaders</span>
+                  <span>TypeScript</span>
                 </div>
               </div>
             </article>
 
-            <article class="work-card">
-              <div class="work-card-inner">
-                <div class="work-visual" style="background: radial-gradient(circle at 30% 40%, #7c3aed, #09090b 70%);">
-                  <div class="project-tag">02 / AI TOOLING</div>
-                </div>
-                <div class="work-info">
-                  <span class="work-category">Systems Engineering • 2026</span>
-                  <h3 class="work-title">Cognitive Autonomous Agent Suite</h3>
-                  <p class="work-desc">High-speed background agent coordination workflow with live streaming token visualization and headless browser orchestrations.</p>
-                  <div class="pill-row">
-                    <span>Node.js</span>
-                    <span>REST / WebSockets</span>
-                    <span>Automation</span>
-                  </div>
+            <article class="project-entry">
+              <div class="project-preview preview-gradient-2">
+                <div class="project-badge">ARCHITECTURE / AUTOMATION</div>
+              </div>
+              <div class="project-details">
+                <span class="project-year">2026 // CASE STUDY</span>
+                <h3 class="project-name">Hyper-Scale Distributed Agents</h3>
+                <p>Autonomous AI infrastructure platform streaming real-time tokens and orchestrating headless browser pipelines.</p>
+                <div class="project-tags">
+                  <span>Node.js</span>
+                  <span>Distributed Systems</span>
+                  <span>WebSockets</span>
                 </div>
               </div>
             </article>
 
-            <article class="work-card">
-              <div class="work-card-inner">
-                <div class="work-visual" style="background: radial-gradient(circle at 60% 60%, #2563eb, #09090b 70%);">
-                  <div class="project-tag">03 / EXPERIENCE</div>
-                </div>
-                <div class="work-info">
-                  <span class="work-category">Creative Engineering • 2026</span>
-                  <h3 class="work-title">Cinematic Dimension Portfolio</h3>
-                  <p class="work-desc">Editorial dark-mode aesthetic utilizing mathematical scroll interpolation, liquid backdrop gradients, and micro-interactions.</p>
-                  <div class="pill-row">
-                    <span>Vanilla JS</span>
-                    <span>Fluid Typography</span>
-                    <span>GSAP-Style Motion</span>
-                  </div>
+            <article class="project-entry">
+              <div class="project-preview preview-gradient-3">
+                <div class="project-badge">CREATIVE EDITORIAL</div>
+              </div>
+              <div class="project-details">
+                <span class="project-year">2026 // BRAND IDENTITY</span>
+                <h3 class="project-name">Minimalist Dark Horizon</h3>
+                <p>A luxury editorial website marrying monumental typography with buttery-smooth scroll interpolation.</p>
+                <div class="project-tags">
+                  <span>Kinetic Typography</span>
+                  <span>Dark Aesthetic</span>
+                  <span>Vanilla Motion</span>
                 </div>
               </div>
             </article>
@@ -184,47 +184,20 @@
         </div>
       </section>
 
-      <!-- Capabilities / Stack -->
-      <section class="section skills-section" id="skills">
-        <div class="section-container">
-          <div class="editorial-header">
-            <span class="section-counter">03 // CORE CAPABILITIES</span>
-            <h2 class="section-heading">Engineered for Elegance & Scale</h2>
+      <!-- Section 03: Contact Footer -->
+      <section class="content-block contact-block" id="contact">
+        <div class="container text-center">
+          <span class="block-num">03 / INITIATE</span>
+          <h2 class="contact-title">Let's Build The Extraordinary.</h2>
+          <p class="contact-sub">Available for bespoke digital commissions, creative leadership, and high-stakes projects.</p>
+          <div class="contact-links">
+            <a href="mailto:contact@morshedul.dev" class="btn-glow">Get In Touch ↗</a>
+            <a href="https://github.com/yaboistellar" target="_blank" rel="noopener noreferrer" class="btn-ghost">GitHub Archive</a>
           </div>
-          <div class="skills-grid">
-            <div class="skill-tile">
-              <span class="skill-index">01</span>
-              <h4>Creative Development</h4>
-              <p>Liquid animations, scroll-driven timelines, WebGL shader experiments, and micro-physics interactions.</p>
-            </div>
-            <div class="skill-tile">
-              <span class="skill-index">02</span>
-              <h4>Frontend Systems</h4>
-              <p>Modern JavaScript (ESNext), React, Next.js architecture, component design tokens, and sub-100ms load benchmarks.</p>
-            </div>
-            <div class="skill-tile">
-              <span class="skill-index">03</span>
-              <h4>Full-Stack & Cloud</h4>
-              <p>Node.js backends, serverless deployments, CI/CD automated pipelines, and cloud containerization.</p>
-            </div>
+          <div class="footer-signoff">
+            <span>© 2026 MORSHEDUL HASAN — ALL RIGHTS RESERVED.</span>
+            <span>BUILT WITH ORGANIC PRECISION</span>
           </div>
-        </div>
-      </section>
-
-      <!-- Contact Section -->
-      <section class="section contact-section" id="contact">
-        <div class="section-container text-center">
-          <span class="section-counter">04 // CONNECT</span>
-          <h2 class="contact-hero-text">Let's craft something unforgettable.</h2>
-          <p class="contact-subtext">Have a project in mind, an opportunity, or just want to discuss modern web design?</p>
-          <div class="contact-actions">
-            <a href="mailto:contact@morshedul.dev" class="primary-btn">Start a Conversation ↗</a>
-            <a href="https://github.com/yaboistellar" target="_blank" rel="noopener noreferrer" class="secondary-btn">GitHub Profile</a>
-          </div>
-          <footer class="footer-bottom">
-            <span>© 2026 Morshedul Hasan. All rights reserved.</span>
-            <span>Handcrafted with precision.</span>
-          </footer>
         </div>
       </section>
 

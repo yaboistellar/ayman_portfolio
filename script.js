@@ -1,83 +1,162 @@
-// Elements
-const visualCore = document.getElementById('visualCore');
-const slotLeft = document.querySelector('.slot-left');
-const slotRight = document.querySelector('.slot-right');
-const heroFooterBar = document.getElementById('heroFooterBar');
-const scrollTrack = document.getElementById('scrollTrack');
-const navbar = document.getElementById('navbar');
+// ========================================================
+// 1. PROCEDURAL ORGANIC 3D CHROME FLOWER / LIQUID SPIRE CANVAS
+// Recreating the exact spiky reflective chrome organism in the center
+// ========================================================
+const canvas = document.getElementById('organicCanvas');
+const ctx = canvas.getContext('2d');
+const W = canvas.width;
+const H = canvas.height;
+const centerX = W / 2;
+const centerY = H / 2;
 
-// Smooth continuous calculation based on scroll progress through the scroll track
-function handleScrollAnimation() {
-  const scrollY = window.scrollY;
-  const trackHeight = scrollTrack.offsetHeight - window.innerHeight;
-  
-  // Progress ratio from 0 to 1 through the hero transition track
-  const rawProgress = scrollY / Math.max(trackHeight, 1);
-  const progress = Math.min(Math.max(rawProgress, 0), 1);
+let angleOffset = 0;
+let mouseX = 0;
+let mouseY = 0;
 
-  // 1. Text Split Separation Animation:
-  // As user scrolls down, "MORSHEDUL" glides outward left and "HASAN" outward right
-  const textTranslateX = progress * 260; // 0px to 260px outward
-  const textOpacity = Math.max(0, 1 - progress * 1.6); // Fades gently
-  const textScale = 1 - progress * 0.12; // Subtle scale down
+function drawOrganicChromeOrganism(scrollProgress) {
+  ctx.clearRect(0, 0, W, H);
 
-  if (slotLeft) {
-    slotLeft.style.transform = `translateX(-${textTranslateX}px) scale(${textScale})`;
-    slotLeft.style.opacity = textOpacity.toString();
-  }
+  // Dynamic growth & deformation based on time and scroll
+  angleOffset += 0.012;
+  const numPetals = 16;
+  const baseRadius = 140 * (1 + scrollProgress * 0.7);
 
-  if (slotRight) {
-    slotRight.style.transform = `translateX(${textTranslateX}px) scale(${textScale})`;
-    slotRight.style.opacity = textOpacity.toString();
-  }
+  ctx.save();
+  ctx.translate(centerX + mouseX * 20, centerY + mouseY * 20);
+  ctx.rotate(angleOffset * 0.4 + scrollProgress * 1.5);
 
-  // 2. Center 3D Visual Core Animation:
-  // Starts centered between the words, then expands and blooms as the text splits,
-  // before smoothly receding into the content below
-  if (visualCore) {
-    const coreScale = 1 + progress * 0.85; // Expands to 1.85x
-    const coreOpacity = Math.max(0, 1 - progress * 1.25);
-    const coreRotation = progress * 45; // Degrees
-    visualCore.style.transform = `translate(-50%, -50%) scale(${coreScale}) rotate(${coreRotation}deg)`;
-    visualCore.style.opacity = coreOpacity.toString();
-  }
+  // Layer 1: Deep Metallic Core Reflections
+  for (let layer = 0; layer < 4; layer++) {
+    ctx.beginPath();
+    const layerScale = 1 - layer * 0.18;
+    const currentRadius = baseRadius * layerScale;
 
-  // 3. Footer Bar & Scroll indicator fade
-  if (heroFooterBar) {
-    const footerOpacity = Math.max(0, 1 - progress * 3.5);
-    heroFooterBar.style.opacity = footerOpacity.toString();
-    heroFooterBar.style.transform = `translateY(${progress * 40}px)`;
-  }
+    for (let i = 0; i <= 360; i += 2) {
+      const rad = (i * Math.PI) / 180;
+      // High-frequency harmonic formula creating the spiky liquid tentacles
+      const spike = Math.sin(rad * numPetals + angleOffset * 2) * 55 * layerScale;
+      const ripple = Math.cos(rad * 8 - angleOffset * 3) * 25 * layerScale;
+      const r = currentRadius + spike + ripple;
 
-  // 4. Navbar styling tweak when deep in content
-  if (navbar) {
-    if (scrollY > 120) {
-      navbar.style.background = 'rgba(0, 0, 0, 0.85)';
-      navbar.style.borderBottomColor = 'rgba(255, 255, 255, 0.12)';
-    } else {
-      navbar.style.background = 'rgba(0, 0, 0, 0.6)';
-      navbar.style.borderBottomColor = 'rgba(255, 255, 255, 0.08)';
+      const x = Math.cos(rad) * r;
+      const y = Math.sin(rad) * r;
+
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
     }
+    ctx.closePath();
+
+    // Chrome Gradient: Deep blacks, crystalline purples, and sharp white highlights
+    const grad = ctx.createRadialGradient(0, 0, 10, 0, 0, currentRadius + 70);
+    if (layer === 0) {
+      grad.addColorStop(0, '#e879f9');
+      grad.addColorStop(0.35, '#7e22ce');
+      grad.addColorStop(0.65, '#0f051d');
+      grad.addColorStop(0.85, '#ffffff'); // Chrome rim highlight
+      grad.addColorStop(1, '#05020a');
+    } else if (layer === 1) {
+      grad.addColorStop(0, '#c084fc');
+      grad.addColorStop(0.4, '#3b0764');
+      grad.addColorStop(0.8, '#a855f7');
+      grad.addColorStop(1, '#000000');
+    } else {
+      grad.addColorStop(0, '#ffffff');
+      grad.addColorStop(0.5, '#581c87');
+      grad.addColorStop(1, '#050508');
+    }
+
+    ctx.fillStyle = grad;
+    ctx.shadowColor = layer === 0 ? 'rgba(168, 85, 247, 0.7)' : 'rgba(0, 0, 0, 0.9)';
+    ctx.shadowBlur = layer === 0 ? 35 : 15;
+    ctx.fill();
+
+    ctx.strokeStyle = layer === 0 ? 'rgba(255, 255, 255, 0.65)' : 'rgba(192, 132, 252, 0.3)';
+    ctx.lineWidth = layer === 0 ? 1.5 : 1;
+    ctx.stroke();
   }
 
-  requestAnimationFrame(handleScrollAnimation);
+  // Draw intricate chrome spore filaments radiating outward
+  ctx.strokeStyle = 'rgba(216, 180, 254, 0.4)';
+  ctx.lineWidth = 1;
+  for (let k = 0; k < numPetals; k++) {
+    const kAngle = (k * 2 * Math.PI) / numPetals + angleOffset;
+    const len = baseRadius * 1.35;
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.quadraticCurveTo(
+      Math.cos(kAngle + 0.3) * (len * 0.6),
+      Math.sin(kAngle + 0.3) * (len * 0.6),
+      Math.cos(kAngle) * len,
+      Math.sin(kAngle) * len
+    );
+    ctx.stroke();
+  }
+
+  ctx.restore();
 }
 
-// Start smooth animation loop
-window.addEventListener('scroll', () => {
-  // Driven smoothly via requestAnimationFrame
-}, { passive: true });
+// ========================================================
+// 2. SCROLL-DRIVEN TIMELINE (EXACT BEHAVIOR FROM THE VIDEO)
+// Monumental words split outward to the edges while the organism blooms
+// ========================================================
+const scrollTrack = document.getElementById('scrollTrack');
+const blockLeft = document.getElementById('blockLeft');
+const blockRight = document.getElementById('blockRight');
+const sculptureWrapper = document.getElementById('sculptureWrapper');
+const scrollWidget = document.getElementById('scrollWidget');
+const cornerElements = document.querySelectorAll('.hero-corner');
 
-requestAnimationFrame(handleScrollAnimation);
+let currentScrollY = 0;
 
-// Interactive mouse parallax on the 3D visual orb when idle at the top
-window.addEventListener('mousemove', (e) => {
-  if (window.scrollY < 200 && visualCore) {
-    const x = (e.clientX / window.innerWidth - 0.5) * 30;
-    const y = (e.clientY / window.innerHeight - 0.5) * 30;
-    visualCore.style.marginLeft = `${x}px`;
-    visualCore.style.marginTop = `${y}px`;
+function updateExperience() {
+  const scrollY = window.scrollY;
+  const trackHeight = scrollTrack.offsetHeight - window.innerHeight;
+  const progress = Math.min(Math.max(scrollY / Math.max(trackHeight, 1), 0), 1);
+
+  // 1. Split Text Motion:
+  // "MORSHEDUL" glides outward left and "HASAN" outward right
+  const textX = progress * 320; // 0 to 320px
+  const textScale = 1 - progress * 0.15;
+  const textOpacity = Math.max(0, 1 - progress * 1.5);
+
+  if (blockLeft) {
+    blockLeft.style.transform = `translateX(-${textX}px) scale(${textScale})`;
+    blockLeft.style.opacity = textOpacity.toString();
   }
+
+  if (blockRight) {
+    blockRight.style.transform = `translateX(${textX}px) scale(${textScale})`;
+    blockRight.style.opacity = textOpacity.toString();
+  }
+
+  // 2. Sculpture Scaling & Rotation on Scroll:
+  if (sculptureWrapper) {
+    const scScale = 1 + progress * 0.7;
+    const scOpacity = Math.max(0, 1 - progress * 1.3);
+    sculptureWrapper.style.transform = `translate(-50%, -50%) scale(${scScale})`;
+    sculptureWrapper.style.opacity = scOpacity.toString();
+  }
+
+  // 3. Corner Labels and Scroll Widget Fade out early:
+  const cornerOpacity = Math.max(0, 1 - progress * 2.8);
+  cornerElements.forEach((el) => {
+    el.style.opacity = cornerOpacity.toString();
+  });
+
+  if (scrollWidget) {
+    scrollWidget.style.opacity = cornerOpacity.toString();
+  }
+
+  // Draw procedural canvas frame
+  drawOrganicChromeOrganism(progress);
+
+  requestAnimationFrame(updateExperience);
+}
+
+// Interactive Parallax
+window.addEventListener('mousemove', (e) => {
+  mouseX = (e.clientX / window.innerWidth - 0.5);
+  mouseY = (e.clientY / window.innerHeight - 0.5);
 });
 
 // Smooth anchor scrolling
@@ -93,3 +172,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     }
   });
 });
+
+// Run loop
+requestAnimationFrame(updateExperience);
