@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Morshedul Hasan | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main id="app">
+      <!-- Sticky / Margin Container for Heading on Scroll -->
+      <header class="top-nav" id="topNav">
+        <div class="nav-brand">Morshedul Hasan</div>
+      </header>
+
+      <!-- Hero Section -->
+      <section class="hero-section" id="heroSection">
+        <div class="hero-content" id="heroContent">
+          <h1 class="hero-title" id="heroTitle">
+            <span class="greeting">Hello, I am</span>
+            <span class="name-highlight">Morshedul Hasan</span>
+          </h1>
+          <p class="hero-subtext">Software Engineer & Creative Developer crafting modern web experiences.</p>
+          <div class="scroll-indicator">
+            <span>Scroll down</span>
+            <div class="scroll-arrow">↓</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content sections that reveal as you scroll -->
+      <section class="content-section" id="about">
+        <div class="section-badge">About</div>
+        <h2>Passionate about building scalable systems & delightful interfaces</h2>
+        <p>I blend engineering rigor with design aesthetics to build fast, responsive, and intuitive web applications.</p>
+      </section>
+
+      <section class="content-section" id="projects">
+        <div class="section-badge">Selected Work</div>
+        <h2>Featured Projects</h2>
+        <div class="cards-grid">
+          <div class="card">
+            <h3>Interactive Web Platform</h3>
+            <p>Real-time analytics dashboard with dynamic data visualizations and sub-second load times.</p>
+            <div class="card-tags"><span>TypeScript</span><span>React</span><span>WebSockets</span></div>
+          </div>
+          <div class="card">
+            <h3>AI Coding Assistant Integration</h3>
+            <p>Developer tooling and background workflow automation engine with streaming responses.</p>
+            <div class="card-tags"><span>Node.js</span><span>LLM APIs</span><span>CSS3</span></div>
+          </div>
+          <div class="card">
+            <h3>High-Performance Portfolio</h3>
+            <p>Minimalist dark-mode portfolio emphasizing sleek typography, subtle glassmorphism, and micro-interactions.</p>
+            <div class="card-tags"><span>Vanilla JS</span><span>CSS Gradients</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="contact">
+        <div class="section-badge">Get In Touch</div>
+        <h2>Let's build something together</h2>
+        <p>Open for collaborations, interesting engineering problems, and new opportunities.</p>
+        <a class="contact-btn" href="mailto:contact@morshedul.dev">Say Hello</a>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
